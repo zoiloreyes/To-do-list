@@ -13,6 +13,8 @@ public class Event{
 		private String title;
 		private String description;
 		private int importance;
+		private boolean done;
+		private ArrayList<String> tags = new ArrayList<String>();
 
 		public void prepareEvent(){
 			System.out.println("Welcome to the new Event creator ;-) \n Enter the title of the task");
@@ -36,13 +38,18 @@ public class Event{
 			System.out.println("Enter minutes");
 			ans = sc.nextInt();
 			setMinute(ans);
+			String us = sc.nextLine();
+			System.out.println("Enter tags");
+			String tagIp = sc.nextLine();
+			addTags(tagIp);
+
 		}
 
 		public void displayEvent(){
 			Calendar calendar = new GregorianCalendar(year,month,day,hour,min);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMMM dd hh:mm a");
 			System.out.printf("The Event \"%s\"  with the description \"%s\" is due to \n",title,description);	
-			System.out.println(sdf.format(calendar.getTime()));
+			System.out.println(sdf.format(calendar.getTime())+" with the tags: " + getTags());
 		}
 		public void setImportance(int imp){
 			this.importance = imp;
@@ -105,6 +112,27 @@ public class Event{
 		public void setHour(int hour){
 			this.hour = hour;
 		}
+
+		public void addTags(String tag){
+			String[] tagArr = tag.split(", ");
+			for (int i = 0 ; i < tagArr.length ; i++){
+				this.tags.add(tagArr[i]);
+			}
+			
+		}
+
+		public String getTags() {
+			String devolver = "";
+			int qnt = this.tags.size();
+			for (int i = 0 ; i < qnt ; i++) {
+				devolver = devolver + this.tags.get(i) + ", ";
+				
+				
+			}
+			devolver = devolver.substring(0, devolver.length()-2);
+			return devolver;
+		}
+
 	public static void main(String[] args){
 		Event ev = new Event();
 		ev.prepareEvent();
@@ -112,3 +140,276 @@ public class Event{
 		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*tu mama es hombre*/
